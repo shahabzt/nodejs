@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 
 app.use(helmet())
-app.use(morgan("tiny"))
+if(app.get("env") === "development") app.use(morgan("tiny"))
 
 app.use(logger)
 app.use(auth)
